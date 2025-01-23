@@ -1,4 +1,4 @@
-package com.example.parkingapp.model.api
+package com.example.parkingapp.data.source.remote.api
 
 import com.example.parkingapp.model.ParkingInfo
 import retrofit2.http.GET

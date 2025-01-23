@@ -1,4 +1,4 @@
-package com.example.parkingapp.model.data
+package com.example.parkingapp.data
 
 sealed class Result<out R> {
 

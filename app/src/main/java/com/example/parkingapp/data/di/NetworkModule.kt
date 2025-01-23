@@ -1,7 +1,7 @@
-package com.example.parkingapp.model.di
+package com.example.parkingapp.data.di
 
 import com.example.parkingapp.BuildConfig
-import com.example.parkingapp.model.api.ParkingApiService
+import com.example.parkingapp.data.source.remote.api.ParkingApiService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ParkingAppModule {
+object NetworkModule {
 
     @Provides
     @Singleton

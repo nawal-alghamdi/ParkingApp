@@ -1,8 +1,8 @@
-package com.example.parkingapp.model.data.source.remote
+package com.example.parkingapp.data.source.remote
 
 import com.example.parkingapp.model.ParkingInfo
-import com.example.parkingapp.model.api.ParkingApiService
-import com.example.parkingapp.model.data.Result
+import com.example.parkingapp.data.source.remote.api.ParkingApiService
+import com.example.parkingapp.data.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

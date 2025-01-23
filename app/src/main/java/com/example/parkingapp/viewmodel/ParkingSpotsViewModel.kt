@@ -1,11 +1,10 @@
 package com.example.parkingapp.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.parkingapp.data.Result
+import com.example.parkingapp.data.source.ParkingAppRepository
 import com.example.parkingapp.model.ParkingInfo
-import com.example.parkingapp.model.data.Result
-import com.example.parkingapp.model.data.source.ParkingAppRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
