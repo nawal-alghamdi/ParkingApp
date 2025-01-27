@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.parkingapp.model.ParkingInfo
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ParkingDao {
@@ -19,13 +20,13 @@ interface ParkingDao {
     suspend fun updateActiveParking(parkingId: Int, isActive: Boolean)
 
     @Query("SELECT * FROM parkingSpots WHERE is_active = 1")
-    suspend fun getActiveParkingSpots(): List<ParkingInfo>
+    fun getActiveParkingSpots(): Flow<List<ParkingInfo>>
 
     @Query("UPDATE parkingSpots SET is_active = 0, is_parking_time_over = 1 WHERE id = :parkingId")
     suspend fun onBookingComplete(parkingId: Int)
 
     @Query("SELECT * FROM parkingSpots WHERE is_parking_time_over = 1")
-    suspend fun getCompletedParkingSpots(): List<ParkingInfo>
+    fun getCompletedParkingSpots(): Flow<List<ParkingInfo>>
 
     @Delete
     suspend fun delete(parkingSpots: List<ParkingInfo>)

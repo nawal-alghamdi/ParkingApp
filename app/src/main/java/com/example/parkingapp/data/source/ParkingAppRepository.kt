@@ -6,6 +6,7 @@ import com.example.parkingapp.data.source.database.ParkingDao
 import com.example.parkingapp.data.source.remote.ParkingRemoteDataSource
 import com.example.parkingapp.model.ParkingInfo
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -41,16 +42,16 @@ class ParkingAppRepository @Inject constructor(
         parkingDao.updateActiveParking(id, isActive)
     }
 
-    override suspend fun getActiveParkingSpots(): Result<List<ParkingInfo>> {
-        return Success(parkingDao.getActiveParkingSpots())
+    override fun getActiveParkingSpots(): Flow<List<ParkingInfo>> {
+        return parkingDao.getActiveParkingSpots()
     }
 
     override suspend fun markBookingAsCompleted(id: Int) {
         parkingDao.onBookingComplete(id)
     }
 
-    override suspend fun getFinishedParkingSpots(): Result<List<ParkingInfo>> {
-        return Success(parkingDao.getCompletedParkingSpots())
+    override fun getFinishedParkingSpots(): Flow<List<ParkingInfo>> {
+        return parkingDao.getCompletedParkingSpots()
     }
 
     override suspend fun getParkingSpotsFromDB(): List<ParkingInfo> = withContext(ioDispatcher) {

@@ -2,6 +2,7 @@ package com.example.parkingapp.data.source
 
 import com.example.parkingapp.data.Result
 import com.example.parkingapp.model.ParkingInfo
+import kotlinx.coroutines.flow.Flow
 
 interface ParkingRepository {
 
@@ -11,11 +12,11 @@ interface ParkingRepository {
 
     suspend fun updateActiveParking(id: Int, isActive: Boolean)
 
-    suspend fun getActiveParkingSpots(): Result<List<ParkingInfo>>
+    fun getActiveParkingSpots(): Flow<List<ParkingInfo>>
 
     suspend fun markBookingAsCompleted(id: Int)
 
-    suspend fun getFinishedParkingSpots(): Result<List<ParkingInfo>>
+    fun getFinishedParkingSpots(): Flow<List<ParkingInfo>>
 
     suspend fun getParkingSpotsFromDB(): List<ParkingInfo>
 

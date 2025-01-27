@@ -19,6 +19,8 @@ class ParkingSpotsViewModel @Inject constructor(
 
     private val _parkingSpots = MutableStateFlow(emptyList<ParkingInfo>())
     val parkingSpots: StateFlow<List<ParkingInfo>> = _parkingSpots.asStateFlow()
+    val activeParkingSpots = parkingRepository.getActiveParkingSpots()
+    val finishedParkingSpots = parkingRepository.getFinishedParkingSpots()
 
     init {
         viewModelScope.launch {
